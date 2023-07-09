@@ -38,7 +38,6 @@ func choices_intersection ( grid_pos:Vector2i ) :
 		if cell_dico.has(grid_pos + dir):
 			if not(doors_dico.has(grid_pos + dir)) || doors_dico[grid_pos + dir].open :
 				retval.append(dir)
-				print(doors_dico.has(grid_pos + dir))
 	
 	return retval
 

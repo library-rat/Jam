@@ -4,12 +4,18 @@ extends Sprite2D
 var dead = false
 var cooldown = 0.5
 var count = 0
+var max_oxygene = 30
+var oxygene = max_oxygene
 @export var cell : Vector2i
 @export var mainscene : Main
 
 func _process(delta):
+	oxygene -= delta
+	if oxygene < 0 :
+		dead = true
 	if dead :
 		return
+	update_oxygene()
 	count += delta
 	if count >cooldown :
 		count -= cooldown
@@ -24,6 +30,8 @@ func update_cell(new_cell :Vector2i):
 	cell = new_cell;
 	position = mainscene.grid_to_pos(new_cell)
 
+func update_oxygene():
+	$ProgressBar.value = 100*oxygene/max_oxygene
 
 func move():
 	var choice = mainscene.choices_intersection(cell)
