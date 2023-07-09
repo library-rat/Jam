@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dega6fqjx65tq"]
+[gd_scene load_steps=7 format=3 uid="uid://dega6fqjx65tq"]
 
 [ext_resource type="Texture2D" uid="uid://cpv1j4nfd8ren" path="res://Tile.png" id="1_db1yw"]
 [ext_resource type="Script" path="res://main.gd" id="1_t305n"]
+[ext_resource type="PackedScene" uid="uid://cdvq5a3nqammn" path="res://astronaute_spawner.tscn" id="3_7xqw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk6ba"]
 texture = ExtResource("1_db1yw")
@@ -10,10 +11,42 @@ texture = ExtResource("1_db1yw")
 [sub_resource type="TileSet" id="TileSet_ho3tc"]
 sources/1 = SubResource("TileSetAtlasSource_fk6ba")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxkjg"]
+size = Vector2(64, 62)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_t305n")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ho3tc")
 format = 2
-layer_0/tile_data = PackedInt32Array(131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 196627, 1, 0, 262163, 1, 0, 327699, 1, 0, 393235, 1, 0, 458771, 1, 0, 524307, 1, 0, 589843, 1, 0, 655379, 1, 0, 720915, 1, 0, 786451, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 196619, 1, 0, 262155, 1, 0, 327691, 1, 0, 393227, 1, 0, 458764, 1, 0, 524300, 1, 0, 589836, 1, 0, 655372, 1, 0, 458763, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 524303, 1, 0, 458767, 1, 0, 393231, 1, 0, 327695, 1, 0, 262159, 1, 0, 851987, 1, 0, 917523, 1, 0, 983059, 1, 0, 1048595, 1, 0, 1114131, 1, 0, 983058, 1, 0, 983057, 1, 0, 983056, 1, 0, 983055, 1, 0, 983054, 1, 0, 983053, 1, 0, 983052, 1, 0, 983051, 1, 0, 983050, 1, 0, 983049, 1, 0, 983048, 1, 0, 983047, 1, 0, 983046, 1, 0, 917511, 1, 0, 851975, 1, 0, 786439, 1, 0, 720903, 1, 0, 655367, 1, 0, 589831, 1, 0, 524295, 1, 0, 458759, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0)
+layer_0/tile_data = PackedInt32Array(131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 196627, 1, 0, 262163, 1, 0, 327699, 1, 0, 393235, 1, 0, 458771, 1, 0, 524307, 1, 0, 589843, 1, 0, 655379, 1, 0, 720915, 1, 0, 786451, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 196619, 1, 0, 262155, 1, 0, 327691, 1, 0, 393227, 1, 0, 458764, 1, 0, 524300, 1, 0, 589836, 1, 0, 655372, 1, 0, 458763, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 524303, 1, 0, 458767, 1, 0, 393231, 1, 0, 327695, 1, 0, 262159, 1, 0, 851987, 1, 0, 917523, 1, 0, 983059, 1, 0, 1048595, 1, 0, 1114131, 1, 0, 983058, 1, 0, 983057, 1, 0, 983056, 1, 0, 983055, 1, 0, 983054, 1, 0, 983053, 1, 0, 983052, 1, 0, 983051, 1, 0, 983050, 1, 0, 983049, 1, 0, 983048, 1, 0, 983047, 1, 0, 983046, 1, 0, 917511, 1, 0, 851975, 1, 0, 786439, 1, 0, 720903, 1, 0, 655367, 1, 0, 589831, 1, 0, 524295, 1, 0, 458759, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 65539, 1, 0, 131075, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(117, 125)
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_vxkjg")
+
+[node name="SpacionauteManager" type="Node2D" parent="."]
+
+[node name="SpawnerManager" type="Node2D" parent="."]
+
+[node name="SpacionauteSpawner2" parent="SpawnerManager" instance=ExtResource("3_7xqw4")]
+position = Vector2(201, 165)
+
+[node name="SpacionauteSpawner" parent="SpawnerManager" instance=ExtResource("3_7xqw4")]
+position = Vector2(456, 167)
+
+[node name="DoorManager" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1150, 650)
+offset_right = 1150.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

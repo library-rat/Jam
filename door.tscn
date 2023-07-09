@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://3rr080ughri6"]
+
+[ext_resource type="Texture2D" uid="uid://dxdkawir3b1gv" path="res://Door_open.png" id="1_db8ci"]
+[ext_resource type="Script" path="res://Door.gd" id="1_yeh4o"]
+
+[node name="Door" type="Button" groups=["Door"]]
+offset_left = -5.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = 12.0
+icon = ExtResource("1_db8ci")
+flat = true
+icon_alignment = 2
+script = ExtResource("1_yeh4o")
+
+[node name="Side1" type="Node2D" parent="."]
+position = Vector2(10, 12)
+
+[node name="Side2" type="Node2D" parent="."]
+position = Vector2(0, 12)
