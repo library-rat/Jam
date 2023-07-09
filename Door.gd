@@ -3,17 +3,13 @@ extends Button
 
 @onready var open_door = preload("res://Door_open.png")
 @onready var close_door = preload("res://Door_close.png")
-var cell1 : Vector2i
-var cell2 : Vector2i
+var cell : Vector2i
 var main : Main
 @export var open :bool 
 
 func init(new_main : Main):
 	main = new_main
-	cell1 = main.pos_to_grid($Side1.get_global_position())
-	cell2 = main.pos_to_grid($Side2.get_global_position())
-	print(cell1)
-	print(cell2)
+	cell = main.pos_to_grid($Position.get_global_position())
 	
 
 func opening():

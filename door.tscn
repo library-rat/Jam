@@ -13,10 +13,7 @@ flat = true
 icon_alignment = 2
 script = ExtResource("1_yeh4o")
 
-[node name="Side1" type="Node2D" parent="."]
-position = Vector2(10, 12)
-
-[node name="Side2" type="Node2D" parent="."]
-position = Vector2(0, 12)
+[node name="Position" type="Node2D" parent="."]
+position = Vector2(5, 12)
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

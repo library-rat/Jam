@@ -35,26 +35,29 @@ shape = SubResource("RectangleShape2D_vxkjg")
 
 [node name="SpawnerManager" type="Node2D" parent="."]
 
-[node name="SpacionauteSpawner2" parent="SpawnerManager" instance=ExtResource("3_7xqw4")]
-position = Vector2(201, 165)
-
 [node name="SpacionauteSpawner" parent="SpawnerManager" instance=ExtResource("3_7xqw4")]
 position = Vector2(456, 167)
 
 [node name="DoorManager" type="Node2D" parent="."]
 
 [node name="Door" parent="DoorManager" instance=ExtResource("4_kwyxm")]
-offset_left = 11.0
-offset_top = -3.0
-offset_right = 21.0
-offset_bottom = 21.0
+offset_left = 19.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 20.0
 
 [node name="Door2" parent="DoorManager" instance=ExtResource("4_kwyxm")]
 offset_left = 68.0
-offset_top = 27.0
+offset_top = 19.0
 offset_right = 78.0
-offset_bottom = 51.0
+offset_bottom = 43.0
 rotation = 1.5708
+
+[node name="Door3" parent="DoorManager" instance=ExtResource("4_kwyxm")]
+offset_left = 323.0
+offset_top = 156.0
+offset_right = 333.0
+offset_bottom = 180.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

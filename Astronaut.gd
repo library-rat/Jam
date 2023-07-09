@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var direction : Vector2i
 var dead = false
-var cooldown = 0.1
+var cooldown = 0.5
 var count = 0
 @export var cell : Vector2i
 @export var mainscene : Main

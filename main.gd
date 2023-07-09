@@ -4,6 +4,7 @@ class_name Main
 var cell_dico = {} 
 @onready var map = $TileMap 
 @onready var manager = $SpacionauteManager
+var doors_dico = {}
 func _ready():
 	var temp = map.get_used_cells(0);
 	for cell in temp :
@@ -15,6 +16,8 @@ func _ready():
 	var doors = get_tree().get_nodes_in_group("Door")
 	for do in doors :
 		do.init(self)
+		doors_dico[do.cell] = do
+	print(doors.size())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,7 +36,10 @@ func choices_intersection ( grid_pos:Vector2i ) :
 	var direction = [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]
 	for dir in direction :
 		if cell_dico.has(grid_pos + dir):
-			retval.append(dir)
+			if not(doors_dico.has(grid_pos + dir)) || doors_dico[grid_pos + dir].open :
+				retval.append(dir)
+				print(doors_dico.has(grid_pos + dir))
+	
 	return retval
 
 
