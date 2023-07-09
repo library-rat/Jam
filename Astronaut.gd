@@ -26,7 +26,6 @@ func update_cell(new_cell :Vector2i):
 
 
 func move():
-	print("hello")
 	var choice = mainscene.choices_intersection(cell)
 	if choice.size() == 1 :
 		update_cell(cell + choice[0])

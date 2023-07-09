@@ -18,3 +18,5 @@ position = Vector2(10, 12)
 
 [node name="Side2" type="Node2D" parent="."]
 position = Vector2(0, 12)
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dega6fqjx65tq"]
+[gd_scene load_steps=8 format=3 uid="uid://dega6fqjx65tq"]
 
 [ext_resource type="Texture2D" uid="uid://cpv1j4nfd8ren" path="res://Tile.png" id="1_db1yw"]
 [ext_resource type="Script" path="res://main.gd" id="1_t305n"]
 [ext_resource type="PackedScene" uid="uid://cdvq5a3nqammn" path="res://astronaute_spawner.tscn" id="3_7xqw4"]
+[ext_resource type="PackedScene" uid="uid://3rr080ughri6" path="res://door.tscn" id="4_kwyxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk6ba"]
 texture = ExtResource("1_db1yw")
@@ -41,6 +42,19 @@ position = Vector2(201, 165)
 position = Vector2(456, 167)
 
 [node name="DoorManager" type="Node2D" parent="."]
+
+[node name="Door" parent="DoorManager" instance=ExtResource("4_kwyxm")]
+offset_left = 11.0
+offset_top = -3.0
+offset_right = 21.0
+offset_bottom = 21.0
+
+[node name="Door2" parent="DoorManager" instance=ExtResource("4_kwyxm")]
+offset_left = 68.0
+offset_top = 27.0
+offset_right = 78.0
+offset_bottom = 51.0
+rotation = 1.5708
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
