@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var instanceAstro = preload("res://Astronaut.tscn")
-@export var AstroCooldown : float = 5
-var count = 0
+@export var AstroCooldown : float = 16
+var count = AstroCooldown -1;
 var cell :Vector2i
 var main : Main
 var manager : Node2D

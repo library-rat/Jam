@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Door.gd" id="1_yeh4o"]
 
 [node name="Door" type="Button" groups=["Door"]]
-offset_left = -5.0
+offset_left = -7.0
 offset_top = -12.0
-offset_right = 5.0
+offset_right = 7.0
 offset_bottom = 12.0
 icon = ExtResource("1_db8ci")
 flat = true
@@ -14,6 +14,6 @@ icon_alignment = 2
 script = ExtResource("1_yeh4o")
 
 [node name="Position" type="Node2D" parent="."]
-position = Vector2(5, 12)
+position = Vector2(7, 12)
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

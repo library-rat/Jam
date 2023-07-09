@@ -11,9 +11,15 @@ var oxygene = max_oxygene
 
 func _process(delta):
 	oxygene -= delta
-	if oxygene < 0 :
+	if oxygene < 0 and not(dead):
 		dead = true
+		mainscene.on_death()
+		count = 3
 	if dead :
+		if count >0 :
+			count -= delta
+		else :
+			self.queue_free()
 		return
 	update_oxygene()
 	count += delta

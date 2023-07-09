@@ -5,6 +5,12 @@ var cell_dico = {}
 @onready var map = $TileMap 
 @onready var manager = $SpacionauteManager
 var doors_dico = {}
+
+var count_door = 4
+var array_door = []
+
+var count_death = 0
+
 func _ready():
 	var temp = map.get_used_cells(0);
 	for cell in temp :
@@ -23,8 +29,20 @@ func _ready():
 func _process(delta):
 	#print(pos_to_grid(get_viewport().get_mouse_position()))
 	pass
-	
 
+func check_open_door() :
+	if count_door == 0 :
+		array_door[0].opening()
+
+
+func open_door(door):
+	array_door.erase(door)
+	count_door += 1
+	
+func close_door(door):
+	count_door -= 1
+	array_door.append(door)
+	
 func pos_to_grid(glob_pos: Vector2):
 	return map.local_to_map(map.to_local(glob_pos))
 	
@@ -41,6 +59,9 @@ func choices_intersection ( grid_pos:Vector2i ) :
 	
 	return retval
 
+func on_death():
+	count_death += 1
+	$Label.text = str(count_death)
 
 func _on_area_2d_body_entered(body):
-	$ColorRect.visible = true
+	$GameOver.visible = true
