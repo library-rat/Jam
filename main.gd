@@ -15,6 +15,8 @@ var count_death = 0
 
 var waveNum = 10
 
+var off = false
+
 var waveCount = 15
 var waveCooldown = 16
 signal stopall()
@@ -37,6 +39,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if off :
+		return
 	waveCount += delta
 	if  waveCount > waveCooldown :
 		waveCount -= waveCooldown
@@ -85,6 +89,7 @@ func _on_area_2d_body_entered(body):
 	emit_signal("stopall")
 	array_door = []
 	count_door = 4
+	off = true
 
 
 func _on_button_pressed():
@@ -94,3 +99,4 @@ func _on_button_pressed():
 	count_death = 0
 	waveCount = 15
 	$Label.text = str(count_death)
+	off = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://gk5qxpc850jj"]
+[gd_scene load_steps=6 format=3 uid="uid://gk5qxpc850jj"]
 
 [ext_resource type="Texture2D" uid="uid://cixygqpk6jlyw" path="res://Astronaut.png" id="1_n0huf"]
 [ext_resource type="Script" path="res://Astronaut.gd" id="2_0co4c"]
-[ext_resource type="Texture2D" uid="uid://dfdh72kg1wysk" path="res://Barre_oxygene.png" id="3_s5rcl"]
+[ext_resource type="Texture2D" uid="uid://quyydsm7t5ol" path="res://Chrono_outside.png" id="3_b67t3"]
+[ext_resource type="Texture2D" uid="uid://cug4v1xkk8jhb" path="res://Chrono_inside.png" id="4_hkije"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1f5p"]
 radius = 6.0
@@ -18,9 +19,12 @@ shape = SubResource("CircleShape2D_k1f5p")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 offset_left = 8.0
-offset_top = -13.0
-offset_right = 12.0
-offset_bottom = 13.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
 value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("3_s5rcl")
+fill_mode = 4
+texture_under = ExtResource("3_b67t3")
+texture_progress = ExtResource("4_hkije")
+radial_center_offset = Vector2(0, 3.5)
