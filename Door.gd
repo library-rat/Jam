@@ -10,6 +10,7 @@ var main : Main
 func init(new_main : Main):
 	main = new_main
 	cell = main.pos_to_grid($Position.get_global_position())
+	main.connect("stopall", opening)
 	
 
 func opening():

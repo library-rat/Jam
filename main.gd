@@ -9,7 +9,16 @@ var doors_dico = {}
 var count_door = 4
 var array_door = []
 
+var spawner_array = []
+
 var count_death = 0
+
+var waveNum = 10
+
+var waveCount = 15
+var waveCooldown = 16
+signal stopall()
+signal startall()
 
 func _ready():
 	var temp = map.get_used_cells(0);
@@ -19,16 +28,24 @@ func _ready():
 	var spawners = get_tree().get_nodes_in_group("Spawner")
 	for spwn in spawners :
 		spwn.init(self,manager)
+		spawner_array.append(spwn)
 	var doors = get_tree().get_nodes_in_group("Door")
 	for do in doors :
 		do.init(self)
 		doors_dico[do.cell] = do
-	print(doors.size())
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	waveCount += delta
+	if  waveCount > waveCooldown :
+		waveCount -= waveCooldown
+		for i in range(waveNum) :
+			var index = randi()% spawner_array.size()
+			spawner_array[index].spawn()
+		waveNum += 1
 	#print(pos_to_grid(get_viewport().get_mouse_position()))
-	pass
+
 
 func check_open_door() :
 	if count_door == 0 :
@@ -65,3 +82,15 @@ func on_death():
 
 func _on_area_2d_body_entered(body):
 	$GameOver.visible = true
+	emit_signal("stopall")
+	array_door = []
+	count_door = 4
+
+
+func _on_button_pressed():
+	emit_signal("startall")
+	$GameOver.visible = false
+	waveNum = 1
+	count_death = 0
+	waveCount = 15
+	$Label.text = str(count_death)

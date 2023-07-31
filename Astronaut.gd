@@ -30,7 +30,8 @@ func _process(delta):
 func init(init_cell : Vector2i, init_main : Main):
 	cell = init_cell
 	mainscene = init_main
-	
+	mainscene.connect("stopall", queue_free)
+
 func update_cell(new_cell :Vector2i):
 	direction = new_cell - cell
 	cell = new_cell;

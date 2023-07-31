@@ -91,15 +91,6 @@ offset_right = 1150.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-modulate = Color(0.027451, 1, 0, 1)
-offset_left = 958.0
-offset_top = 11.0
-offset_right = 998.0
-offset_bottom = 37.0
-scale = Vector2(3, 3)
-text = "0"
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 0)
 tile_set = SubResource("TileSet_ste35")
@@ -323,4 +314,57 @@ offset_right = 1150.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 1)
 
+[node name="Label" type="Label" parent="GameOver"]
+modulate = Color(0.027451, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -531.0
+offset_top = 9.0
+offset_right = -424.0
+offset_bottom = 35.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+text = "Humains tués"
+
+[node name="Label2" type="Label" parent="GameOver"]
+modulate = Color(0.027451, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -205.0
+offset_right = -226.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7, 7)
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOver"]
+modulate = Color(0.027451, 1, 0, 1)
+layout_mode = 0
+offset_left = 373.0
+offset_top = 320.0
+offset_right = 453.0
+offset_bottom = 351.0
+scale = Vector2(5, 5)
+text = "REPLAY"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.027451, 1, 0, 1)
+offset_left = 958.0
+offset_top = 11.0
+offset_right = 998.0
+offset_bottom = 37.0
+scale = Vector2(3, 3)
+text = "0"
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]
