@@ -13,7 +13,7 @@ var spawner_array = []
 
 var count_death = 0
 
-var waveNum = 10
+var waveNum = 1
 
 var off = false
 
